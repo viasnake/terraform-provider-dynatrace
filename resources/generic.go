@@ -283,6 +283,7 @@ func isIAMResourceType(resourceType export.ResourceType) bool {
 		export.ResourceTypes.IAMPolicyBindings,
 		export.ResourceTypes.IAMPolicyBindingsV2,
 		export.ResourceTypes.IAMUser,
+		export.ResourceTypes.EnvironmentIPAllowlist,
 		export.ResourceTypes.IAMServiceUser:
 		return true
 	default:
@@ -326,7 +327,7 @@ func (me *Generic) Update(ctx context.Context, d *schema.ResourceData, m any) di
 	// because of the current rate limitations of api.dynatrace.com we simply trust
 	// that the results on the remote side are correct
 	// and therefore avoid unnecessary GET calls
-	if me.Type == export.ResourceTypes.IAMGroup || me.Type == export.ResourceTypes.IAMPermission || me.Type == export.ResourceTypes.IAMPolicy || me.Type == export.ResourceTypes.IAMPolicyBindings || me.Type == export.ResourceTypes.IAMPolicyBindingsV2 || me.Type == export.ResourceTypes.IAMUser || me.Type == export.ResourceTypes.WebApplication {
+	if me.Type == export.ResourceTypes.IAMGroup || me.Type == export.ResourceTypes.IAMPermission || me.Type == export.ResourceTypes.IAMPolicy || me.Type == export.ResourceTypes.IAMPolicyBindings || me.Type == export.ResourceTypes.IAMPolicyBindingsV2 || me.Type == export.ResourceTypes.IAMUser || me.Type == export.ResourceTypes.EnvironmentIPAllowlist || me.Type == export.ResourceTypes.WebApplication {
 		return diag.Diagnostics{}
 	}
 	// dynatrace_hub_extension_config may contain credentials

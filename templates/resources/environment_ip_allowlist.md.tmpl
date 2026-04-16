@@ -1,0 +1,24 @@
+---
+layout: ""
+page_title: "dynatrace_environment_ip_allowlist Resource - terraform-provider-dynatrace"
+subcategory: "Environment Settings"
+description: |-
+  The resource `dynatrace_environment_ip_allowlist` covers Environment IP allowlist configuration via Account Management API for SaaS Accounts
+---
+
+# dynatrace_environment_ip_allowlist (Resource)
+
+-> **Dynatrace SaaS only**
+
+-> To utilize this resource, please define the environment variables `DT_CLIENT_ID`, `DT_CLIENT_SECRET`, `DT_ACCOUNT_ID` with an OAuth client including the following permissions: **View environments** (`account-env-read`) and **Manage environment settings** (`account-env-write`).
+
+## Dynatrace Documentation
+
+- PUT IP allowlist - https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/environment-management-api/put-ip-allowlist
+- GET IP allowlist - https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/environment-management-api/get-ip-allowlist
+
+## Resource Example Usage
+
+{{ tffile "dynatrace/api/env/ipallowlist/testdata/create.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}

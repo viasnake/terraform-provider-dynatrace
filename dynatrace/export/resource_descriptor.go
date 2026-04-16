@@ -310,6 +310,7 @@ import (
 
 	"github.com/dynatrace-oss/terraform-provider-dynatrace/dynatrace/api/documents/directshares"
 	documents "github.com/dynatrace-oss/terraform-provider-dynatrace/dynatrace/api/documents/document"
+	"github.com/dynatrace-oss/terraform-provider-dynatrace/dynatrace/api/env/ipallowlist"
 	"github.com/dynatrace-oss/terraform-provider-dynatrace/dynatrace/api/iam/bindings"
 	"github.com/dynatrace-oss/terraform-provider-dynatrace/dynatrace/api/iam/boundaries"
 	"github.com/dynatrace-oss/terraform-provider-dynatrace/dynatrace/api/iam/groups"
@@ -921,6 +922,7 @@ var AllResources = map[ResourceType]ResourceDescriptor{
 		serviceusers.Service,
 		Dependencies.ID(ResourceTypes.IAMGroup),
 	),
+	ResourceTypes.EnvironmentIPAllowlist: NewResourceDescriptor(ipallowlist.Service),
 	ResourceTypes.IAMGroup: NewResourceDescriptor(
 		groups.Service,
 		Dependencies.LegacyID(ResourceTypes.ManagementZoneV2),
@@ -1936,6 +1938,7 @@ var excludeListedResourceGroups = []ResourceExclusionGroup{
 		Reason: "Account management requires OAuth2 client and is specific to SaaS",
 		Exclusions: []ResourceExclusion{
 			{ResourceTypes.IAMUser, ""},
+			{ResourceTypes.EnvironmentIPAllowlist, ""},
 			{ResourceTypes.IAMGroup, ""},
 			{ResourceTypes.IAMPermission, ""},
 			{ResourceTypes.IAMPolicy, ""},

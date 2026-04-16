@@ -203,6 +203,7 @@ var ResourceTypes = struct {
 	RequestNamings                           ResourceType
 	IAMUser                                  ResourceType
 	IAMServiceUser                           ResourceType
+	EnvironmentIPAllowlist                   ResourceType
 	IAMGroup                                 ResourceType
 	IAMPermission                            ResourceType
 	IAMPolicy                                ResourceType
@@ -624,6 +625,7 @@ var ResourceTypes = struct {
 	"dynatrace_request_namings",
 	"dynatrace_iam_user",
 	"dynatrace_iam_service_user",
+	"dynatrace_environment_ip_allowlist",
 	"dynatrace_iam_group",
 	"dynatrace_iam_permission",
 	"dynatrace_iam_policy",
